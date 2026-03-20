@@ -13,13 +13,9 @@ const PROJECTS_DATA: Record<string, any> = {
     client: 'Modeling Agency',
     role: 'Creative Development',
     stack: 'React, GSAP, Tailwind',
-    heroVideo: 'https://player.vimeo.com/video/1175416913',
+    heroVideo: '/model_agency.mp4',
     problem: 'The agency needed a digital presence that matched the premium, high-fashion nature of their talent. Their existing site was slow and generic.',
     objective: 'Design and engineer an immersive portfolio experience that feels like a high-end editorial magazine while maintaining sub-2-second load times.',
-    processImages: [
-      'https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=2000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=2000&auto=format&fit=crop'
-    ],
     outcome: 'Delivered a highly interactive, fluid web experience that increased client inquiries by 60% within the first month of launch.',
     next: 'aurora'
   },
@@ -28,13 +24,9 @@ const PROJECTS_DATA: Record<string, any> = {
     client: 'Aurora Botanicals',
     role: 'Front-End Engineering',
     stack: 'Next.js, WebGL, Framer Motion',
-    heroVideo: 'https://player.vimeo.com/video/1175416951',
+    heroVideo: '/aurora_skincare.mp4',
     problem: 'A premium skincare brand struggling to convey the tactile, organic feel of their products through a standard e-commerce template.',
     objective: 'Rebuild their platform to communicate luxury and trust while feeling modern, accessible, and technologically advanced.',
-    processImages: [
-      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2000&auto=format&fit=crop'
-    ],
     outcome: 'Secured a 40% decrease in bounce rate and significantly elevated the brand perception in the digital space.',
     next: 'breakpoint'
   },
@@ -43,13 +35,9 @@ const PROJECTS_DATA: Record<string, any> = {
     client: 'Breakpoint Studio',
     role: 'Motion Design, Engineering',
     stack: 'React, Three.js, GSAP',
-    heroVideo: 'https://player.vimeo.com/video/1175416886',
+    heroVideo: '/breakpoint.mp4',
     problem: 'A digital studio needed a landing page that visually represented their focus on deep-tech and modern web infrastructure.',
     objective: 'Create an immersive, WebGL-driven experience that explains complex technical concepts through interactive 3D data visualization.',
-    processImages: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop'
-    ],
     outcome: 'Shipped platform 2 weeks ahead of schedule, establishing a new benchmark for technical agency portfolios.',
     next: 'modeling'
   }
@@ -91,13 +79,15 @@ export default function CaseStudy() {
       {/* HERO */}
       <div className="relative h-screen w-full overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 top-[-10%] h-[120%] pointer-events-none">
-          <iframe 
-            src={`${project.heroVideo}?background=1&autoplay=1&loop=1&byline=0&title=0`}
-            allow="autoplay; fullscreen"
-            className="w-[150%] h-[150%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          <video
+            src={project.heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-black/30" />
         <div className="absolute bottom-10 left-6 md:left-20 text-white">
           <h1 className="text-6xl md:text-9xl font-serif tracking-tighter uppercase mb-4">{project.title}</h1>
           <div className="font-mono text-xs tracking-widest uppercase opacity-80">
@@ -132,23 +122,6 @@ export default function CaseStudy() {
               {project.objective}
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* THE PROCESS */}
-      <div className="px-6 md:px-20 max-w-7xl mx-auto pb-32">
-        <div className="font-mono text-xs uppercase tracking-widest opacity-50 mb-12">The Process</div>
-        <div className="space-y-12 md:space-y-24">
-          {project.processImages.map((img: string, i: number) => (
-            <div key={i} className="relative h-[50vh] md:h-[80vh] w-full overflow-hidden rounded-2xl">
-              <img 
-                src={img} 
-                alt={`Process ${i + 1}`} 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          ))}
         </div>
       </div>
 

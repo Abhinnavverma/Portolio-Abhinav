@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import MagneticButton from '../components/MagneticButton';
 import { ArrowRight } from 'lucide-react';
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const PROJECTS = [
@@ -12,21 +13,21 @@ const PROJECTS = [
     id: '01',
     title: 'Modeling Agency',
     tags: ['Creative Development', 'Interactive UI'],
-    video: 'https://player.vimeo.com/video/1175416913',
+    video: '/model_agency.mp4',
     link: '/case-study/modeling'
   },
   {
     id: '02',
     title: 'Aurora Skin',
     tags: ['E-Commerce', 'WebGL'],
-    video: 'https://player.vimeo.com/video/1175416951',
+    video: '/aurora_skincare.mp4',
     link: '/case-study/aurora'
   },
   {
     id: '03',
     title: 'Breakpoint Dev',
     tags: ['Portfolio', 'Motion Design'],
-    video: 'https://player.vimeo.com/video/1175416886',
+    video: '/breakpoint.mp4',
     link: '/case-study/breakpoint'
   }
 ];
@@ -127,10 +128,13 @@ export default function Home() {
                   </div>
                   
                   <div className="w-full md:w-1/2 order-1 md:order-2 h-[40vh] md:h-[70vh] relative overflow-hidden rounded-2xl group pointer-events-none">
-                    <iframe 
-                      src={`${project.video}?background=1&autoplay=1&loop=1&byline=0&title=0`}
-                      allow="autoplay; fullscreen"
-                      className="w-[150%] h-[150%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 group-hover:scale-105 transition-transform duration-1000"
+                    <video
+                      src={project.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-transform duration-1000"
                     />
                   </div>
                 </div>
@@ -141,8 +145,17 @@ export default function Home() {
       </section>
 
       {/* SERVICES / CAPABILITIES */}
-      <section className="py-32 px-6 md:px-20 bg-[var(--color-bg-dark)]">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-32 px-6 md:px-20 overflow-hidden">
+        <video
+          src="https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start mb-24">
             <h2 className="text-4xl md:text-6xl font-serif tracking-tighter mb-8 md:mb-0">Capabilities</h2>
             <p className="max-w-md text-white/70 font-sans text-sm leading-relaxed">
@@ -190,8 +203,8 @@ export default function Home() {
           </MagneticButton>
           
           <div className="mt-24 flex gap-8 font-mono text-xs uppercase tracking-widest text-white/50">
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://www.github.com/Abhinnavverma" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/abhinav--verma" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
             <a href="https://upwork.com/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Upwork</a>
           </div>
         </div>
